@@ -3,62 +3,43 @@
 import { useRef } from "react";
 
 const institutions = [
-  {
-    name: "School of Continuing Education",
-    description: "Lifelong learning programmes, certificate courses and skill development initiatives.",
-    bg: "from-[#2d1a3a] to-[#4a2060]",
-    abbr: "SCE",
-  },
-  {
-    name: "MCC–MRF Innovation Park",
-    description: "Fostering entrepreneurship, start-ups and industry-academia collaboration.",
-    bg: "from-[#1a2d3a] to-[#204060]",
-    abbr: "MRFIP",
-  },
-  {
-    name: "MCC–Boyd Tandon Business School",
-    description: "Shaping future business leaders with globally benchmarked management education.",
-    bg: "from-[#1a3a2d] to-[#204040]",
-    abbr: "BTBS",
-  },
-  {
-    name: "Placement & Alumni Relations",
-    description: "A robust network connecting students with 5000+ alumni across 40+ countries.",
-    bg: "from-[#3a2d1a] to-[#604020]",
-    abbr: "P&A",
-  },
-  {
-    name: "Centre for Distance Education",
-    description: "Accredited distance learning programmes making quality education accessible.",
-    bg: "from-[#3a1a2d] to-[#601a40]",
-    abbr: "CDE",
-  },
-  {
-    name: "Language Centre",
-    description: "Excellence in languages including French, German, Tamil, Sanskrit and more.",
-    bg: "from-[#1a3a3a] to-[#204848]",
-    abbr: "LC",
-  },
+  { name: "Institute for Advance Christian Studies",           abbr: "IACS",  bg: "from-[#2d1a3a] to-[#4a2060]" },
+  { name: "Institute for Administrative Service Coaching",     abbr: "IASC",  bg: "from-[#1a2d3a] to-[#204060]" },
+  { name: "Dr. Devanesen Centre for Human Resource Development", abbr: "DCHRD", bg: "from-[#1a3a2d] to-[#204040]" },
+  { name: "Centre for Peace Studies",                          abbr: "CPS",   bg: "from-[#3a2d1a] to-[#604020]" },
+  { name: "Centre for Women's Studies",                        abbr: "CWS",   bg: "from-[#3a1a2d] to-[#601a40]" },
+  { name: "School of Continuing Education",                    abbr: "SCE",   bg: "from-[#1a3a3a] to-[#204848]" },
+  { name: "Entrepreneurship Development Cell",                 abbr: "EDC",   bg: "from-[#2d3a1a] to-[#405020]" },
+  { name: "Ideation Club",                                     abbr: "IC",    bg: "from-[#3a1a1a] to-[#602020]" },
+  { name: "MCC Institution Innovation Council",                abbr: "IIC",   bg: "from-[#1a1a3a] to-[#202060]" },
+  { name: "Design Studio",                                     abbr: "DS",    bg: "from-[#3a2a1a] to-[#604830]" },
+  { name: "Corporate Social Responsibility",                   abbr: "CSR",   bg: "from-[#1a3a1a] to-[#205020]" },
+  { name: "IRINS",                                             abbr: "IRINS", bg: "from-[#2a1a3a] to-[#481060]" },
 ];
+
+// Card = 280px wide, gap = 16px
+// Desktop (lg): 4 cards  → 4×280 + 3×16 = 1168px
+// Tablet  (md): 2 cards  → 2×280 + 1×16 =  576px
+// Mobile       : 1 card  →          280px
+const CARD_W = 280;
+const GAP    = 16;
+const SCROLL_BY = CARD_W + GAP; // 296px — move exactly one card
 
 export default function Institutions() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: "left" | "right") => {
-    if (!scrollRef.current) return;
-    scrollRef.current.scrollBy({
-      left: dir === "left" ? -360 : 360,
-      behavior: "smooth",
-    });
+    scrollRef.current?.scrollBy({ left: dir === "left" ? -SCROLL_BY : SCROLL_BY, behavior: "smooth" });
   };
 
   return (
     <section className="bg-white py-16 lg:py-20 px-4 sm:px-6">
       <div className="max-w-screen-xl mx-auto">
+
         {/* Header */}
         <div className="flex items-end justify-between mb-10">
           <div>
-            <h2 className="font-cormorant text-maroon text-3xl lg:text-4xl font-semibold text-center sm:text-left">
+            <h2 className="font-cormorant text-maroon text-3xl lg:text-4xl font-semibold">
               Institutions
             </h2>
             <div className="mt-2.5 flex items-center gap-3">
@@ -69,11 +50,13 @@ export default function Institutions() {
               Centres of learning and innovation within MCC
             </p>
           </div>
-          <div className="hidden sm:flex gap-2">
+
+          {/* Arrows */}
+          <div className="flex gap-2">
             <button
               onClick={() => scroll("left")}
               className="w-10 h-10 border border-border flex items-center justify-center text-[#888] hover:border-maroon hover:text-maroon transition-colors"
-              aria-label="Scroll left"
+              aria-label="Previous"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
@@ -82,7 +65,7 @@ export default function Institutions() {
             <button
               onClick={() => scroll("right")}
               className="w-10 h-10 border border-border flex items-center justify-center text-[#888] hover:border-maroon hover:text-maroon transition-colors"
-              aria-label="Scroll right"
+              aria-label="Next"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
@@ -91,51 +74,46 @@ export default function Institutions() {
           </div>
         </div>
 
-        {/* Scrollable row */}
-        <div
-          ref={scrollRef}
-          className="flex gap-5 overflow-x-auto pb-4 scroll-smooth"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {institutions.map((inst) => (
-            <a
-              key={inst.name}
-              href="#"
-              className="group flex-shrink-0 w-72 lg:w-80 cursor-pointer"
-            >
-              {/* Card image area */}
-              <div
-                className={`relative w-full h-52 bg-gradient-to-br ${inst.bg} overflow-hidden`}
+        {/* Clip window — exactly N cards wide, no partial cards leak out */}
+        <div className="overflow-hidden w-[280px] md:w-[576px] lg:w-[1168px]">
+          <div
+            ref={scrollRef}
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none", scrollBehavior: "smooth" }}
+          >
+            {institutions.map((inst) => (
+              <a
+                key={inst.name}
+                href="#"
+                className="group flex-shrink-0 w-[280px] h-[320px] snap-start cursor-pointer flex flex-col"
               >
-                {/* Decorative pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-4 right-4 w-24 h-24 border border-white rounded-full" />
-                  <div className="absolute top-8 right-8 w-16 h-16 border border-white rounded-full" />
-                  <div className="absolute bottom-4 left-4 w-20 h-20 border border-white" />
+                {/* Upper gradient area — fixed height */}
+                <div className={`relative flex-1 bg-gradient-to-br ${inst.bg} overflow-hidden`}>
+                  {/* Decorative rings */}
+                  <div className="absolute top-4 right-4 w-20 h-20 border border-white/10 rounded-full" />
+                  <div className="absolute top-8 right-8 w-12 h-12 border border-white/10 rounded-full" />
+                  <div className="absolute bottom-4 left-4 w-16 h-16 border border-white/10" />
+                  {/* Abbreviation watermark */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="font-cormorant text-white/10 font-bold text-5xl select-none">
+                      {inst.abbr}
+                    </span>
+                  </div>
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                 </div>
-                {/* Abbreviation watermark */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-cormorant text-white/10 font-bold select-none"
-                    style={{ fontSize: "clamp(3rem, 8vw, 5rem)" }}>
-                    {inst.abbr}
-                  </span>
-                </div>
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-              </div>
 
-              {/* Card label strip */}
-              <div className="bg-maroon group-hover:bg-[#5c1e2d] transition-colors duration-300 px-5 py-4">
-                <h3 className="font-cormorant text-white text-[18px] font-medium leading-snug">
-                  {inst.name}
-                </h3>
-                <p className="font-cormorant text-white/60 text-[14px] mt-1 leading-snug">
-                  {inst.description}
-                </p>
-              </div>
-            </a>
-          ))}
+                {/* Label strip — fixed height 80px */}
+                <div className="h-20 bg-maroon group-hover:bg-[#5c1e2d] transition-colors duration-300 px-4 flex items-center">
+                  <h3 className="font-cormorant text-white text-[16px] font-medium leading-snug line-clamp-2">
+                    {inst.name}
+                  </h3>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   );

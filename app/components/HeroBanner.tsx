@@ -50,7 +50,7 @@ export default function HeroBanner() {
   }, [next]);
 
   return (
-    <section className="relative w-full h-screen min-h-[580px] overflow-hidden bg-dark">
+    <section className="relative w-full overflow-hidden bg-dark" style={{ height: "75vh", minHeight: "500px", maxHeight: "700px" }}>
       {slides.map((slide, i) => (
         <div
           key={i}
