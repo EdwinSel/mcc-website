@@ -4,6 +4,14 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const linkHrefs: Record<string, string> = {
+  "Emblem & Motto": "/about/emblem-motto",
+  "Mission & Vision": "/about/mission-vision",
+  "History & Milestone": "/about/history-and-milestones",
+  "CSR": "/about/csr",
+  "Institutions": "/about/institutions",
+};
+
 type MegaColumn = {
   heading?: string;
   links: string[];
@@ -328,12 +336,12 @@ export default function Navbar() {
                     <ul>
                       {col.links.map((link) => (
                         <li key={link}>
-                          <a
-                            href="#"
+                          <Link
+                            href={linkHrefs[link] ?? "#"}
                             className="block font-cormorant text-[#1a1a1a] text-[15px] leading-8 hover:text-maroon transition-colors duration-150 hover:pl-2 border-l-2 border-transparent hover:border-gold pl-0 transition-all"
                           >
                             {link}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -389,13 +397,13 @@ export default function Navbar() {
                               </p>
                             )}
                             {col.links.map((link) => (
-                              <a
+                              <Link
                                 key={link}
-                                href="#"
+                                href={linkHrefs[link] ?? "#"}
                                 className="block font-cormorant text-white/80 text-[15px] leading-8 hover:text-gold transition-colors"
                               >
                                 {link}
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         ))
