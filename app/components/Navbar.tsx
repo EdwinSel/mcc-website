@@ -10,6 +10,13 @@ const linkHrefs: Record<string, string> = {
   "History & Milestone": "/about/history-and-milestones",
   "CSR": "/about/csr",
   "Institutions": "/about/institutions",
+  "MCC Association": "/about/administration/mcc-association",
+  "Governing Body": "/about/administration/governing-body",
+  "Board of Directors": "/about/administration/board-of-directors",
+  "Senatus": "/about/administration/senatus",
+  "Principal": "/about/administration/principal",
+  "Bursar": "/about/administration/bursar",
+  "Vice Principals": "/about/administration/vice-principals",
 };
 
 type MegaColumn = {
