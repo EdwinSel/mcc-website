@@ -5,6 +5,7 @@ import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
+import { BookOpen, GraduationCap, BookMarked } from "lucide-react";
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
@@ -238,65 +239,97 @@ export default function EnglishDeptPage() {
       </section>
 
       {/* Three Quick Cards */}
-      <div style={{ backgroundColor: "white", borderBottom: "1px solid #dfdfdf" }}>
+      <div
+        style={{
+          position: "relative",
+          padding: "40px 80px",
+          backgroundColor: "white",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
+        }}
+      >
+        {/* Left feather — z-index 1, behind card box */}
+        <Image
+          src="/images/feather.png"
+          alt=""
+          width={280}
+          height={420}
+          style={{
+            position: "absolute",
+            left: "calc(12.5% + 120px)",
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+            height: "auto",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Right feather — z-index 1, behind card box */}
+        <Image
+          src="/images/feather.png"
+          alt=""
+          width={280}
+          height={420}
+          style={{
+            position: "absolute",
+            right: "calc(12.5% + 120px)",
+            top: "50%",
+            transform: "translateY(-50%) scaleX(-1)",
+            zIndex: 1,
+            height: "auto",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* Cards box — z-index 2, above feathers */}
         <div
-          className="max-w-[1000px] mx-auto flex flex-col sm:flex-row"
-          style={{ borderLeft: "1px solid #dfdfdf", borderRight: "1px solid #dfdfdf" }}
+          style={{
+            position: "relative",
+            zIndex: 2,
+            width: "75%",
+            maxWidth: "820px",
+            margin: "0 auto",
+            display: "flex",
+            border: "1px solid #dfdfdf",
+            backgroundColor: "white",
+            boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
+          }}
         >
-          {/* Card 1 — Programmes */}
-          <div
-            className="flex-1 flex flex-col items-center justify-center text-center"
-            style={{ padding: "36px 24px", borderRight: "1px solid #dfdfdf" }}
-          >
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" style={{ marginBottom: "14px" }}>
-              <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="#7B2C3A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="#7B2C3A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <p className="font-cormorant" style={{ fontSize: "20px", color: "#7B2C3A", marginBottom: "6px" }}>
+          {/* Top gold line */}
+          <span style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", backgroundColor: "#D1B05D", display: "block" }} />
+          {/* Bottom maroon gradient */}
+          <span style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "5px", background: "linear-gradient(90deg, #640000, #7B2C3A, #9B3A4A)", display: "block" }} />
+
+          {/* Card 1 — Programmes Offered */}
+          <div style={{ flex: 1, padding: "44px 24px 48px", textAlign: "center", borderRight: "1px solid #dfdfdf" }}>
+            <BookOpen size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
+            <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
               Programmes Offered
             </p>
-            <p className="font-dm" style={{ fontSize: "14px", color: "#666" }}>B.A, M.A &amp; Ph.D</p>
+            <p className="font-cormorant" style={{ fontSize: "14px", color: "#888" }}>B.A, M.A &amp; Ph.D</p>
           </div>
 
           {/* Card 2 — Admissions */}
-          <div
-            className="flex-1 flex flex-col items-center justify-center text-center"
-            style={{ padding: "36px 24px", borderRight: "1px solid #dfdfdf" }}
-          >
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" style={{ marginBottom: "14px" }}>
-              <path d="M22 10v6M2 10l10-5 10 5-10 5z" stroke="#7B2C3A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M6 12v5c3 3 9 3 12 0v-5" stroke="#7B2C3A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <p className="font-cormorant" style={{ fontSize: "20px", color: "#7B2C3A", marginBottom: "16px" }}>Admissions</p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "160px" }}>
-              <a href="#" className="font-dm font-bold" style={{ backgroundColor: "#7B2C3A", color: "white", padding: "10px 32px", borderRadius: "4px", fontSize: "13px", textAlign: "center", textDecoration: "none" }}>
-                UG / PG
-              </a>
-              <a href="#" className="font-dm font-bold" style={{ backgroundColor: "#7B2C3A", color: "white", padding: "10px 32px", borderRadius: "4px", fontSize: "13px", textAlign: "center", textDecoration: "none" }}>
-                Ph.D
-              </a>
-            </div>
+          <div style={{ flex: 1, padding: "44px 24px 48px", textAlign: "center", borderRight: "1px solid #dfdfdf" }}>
+            <GraduationCap size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
+            <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
+              Admissions
+            </p>
+            <QuickBtn label="UG / PG" />
+            <QuickBtn label="Ph.D" />
           </div>
 
           {/* Card 3 — Programme Outcome */}
-          <div
-            className="flex-1 flex flex-col items-center justify-center text-center"
-            style={{ padding: "36px 24px" }}
-          >
-            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" style={{ marginBottom: "14px" }}>
-              <path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="#7B2C3A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="#7B2C3A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M8 7h8M8 11h6" stroke="#7B2C3A" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-            <p className="font-cormorant" style={{ fontSize: "20px", color: "#7B2C3A", marginBottom: "16px" }}>Programme Outcome</p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "160px" }}>
-              <a href="#" className="font-dm font-bold" style={{ backgroundColor: "#7B2C3A", color: "white", padding: "10px 32px", borderRadius: "4px", fontSize: "13px", textAlign: "center", textDecoration: "none" }}>
-                Click Here
-              </a>
-              <a href="#" className="font-dm font-bold" style={{ backgroundColor: "#7B2C3A", color: "white", padding: "10px 32px", borderRadius: "4px", fontSize: "13px", textAlign: "center", textDecoration: "none" }}>
-                Syllabus
-              </a>
-            </div>
+          <div style={{ flex: 1, padding: "44px 24px 48px", textAlign: "center" }}>
+            <BookMarked size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
+            <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
+              Programme Outcome
+            </p>
+            <QuickBtn label="Click Here" />
+            <QuickBtn label="Syllabus" />
           </div>
         </div>
       </div>
@@ -462,6 +495,35 @@ export default function EnglishDeptPage() {
 
       <Footer />
     </>
+  );
+}
+
+// ── QuickBtn (kept co-located) ────────────────────────────────────────────────
+
+function QuickBtn({ label }: { label: string }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <a
+      href="#"
+      className="font-dm font-bold"
+      style={{
+        display: "block",
+        width: "160px",
+        padding: "10px 0",
+        textAlign: "center",
+        fontSize: "13px",
+        borderRadius: "3px",
+        backgroundColor: hovered ? "#640000" : "#7B2C3A",
+        color: "white",
+        textDecoration: "none",
+        margin: "8px auto",
+        transition: "background-color 0.2s ease",
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {label}
+    </a>
   );
 }
 
