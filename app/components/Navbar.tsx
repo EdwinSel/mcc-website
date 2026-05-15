@@ -17,6 +17,10 @@ const linkHrefs: Record<string, string> = {
   "Principal": "/about/administration/principal",
   "Bursar": "/about/administration/bursar",
   "Vice Principals": "/about/administration/vice-principals",
+  "Deans": "/about/administration/deans",
+  "Archives": "/about/administration/archives",
+  "Self-Financed Stream (SFS) Office": "/about/administration/sfs-office",
+  "IQAC": "/iqac",
 };
 
 type MegaColumn = {
@@ -77,6 +81,7 @@ const navItems: NavItem[] = [
       },
     ],
   },
+  { label: "Academics", href: "/academics" },
   {
     label: "Global Outreach",
     href: "#",
@@ -147,7 +152,7 @@ const navItems: NavItem[] = [
       },
     ],
   },
-  { label: "IQAC", href: "#" },
+  { label: "IQAC", href: "/iqac" },
   { label: "NIRF", href: "#" },
   { label: "Fee Payment", href: "#" },
 ];

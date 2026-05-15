@@ -16,7 +16,7 @@ const boxes = [
     iconBg: "#363c37",
     title: "ACADEMICS",
     description: "Explore 70+ programmes across all disciplines",
-    href: "#",
+    href: "/academics",
     icon: (
       <svg className="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="#D1B05D" strokeWidth={1.1}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
