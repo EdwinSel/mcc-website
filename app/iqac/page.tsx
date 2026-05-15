@@ -662,9 +662,6 @@ export default function IQACPage() {
                   textAlign: "left",
                   transition: "all 0.2s ease",
                   outline: "none",
-                  border: "none",
-                  borderBottom: "1px solid rgba(255,255,255,0.1)",
-                  borderLeft: isActive ? "4px solid #D1B05D" : "4px solid transparent",
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
