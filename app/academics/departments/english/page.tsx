@@ -65,7 +65,7 @@ const faculty: FacultyMember[] = [
 function SectionTitle({ title, centered = false }: { title: string; centered?: boolean }) {
   return (
     <div style={{ marginBottom: "24px", textAlign: centered ? "center" : "left" }}>
-      <h2 className="font-cormorant font-bold" style={{ fontSize: "26px", color: "#1a1a1a", marginBottom: "10px" }}>
+      <h2 className="font-cormorant font-bold text-[22px] md:text-[26px]" style={{ color: "#1a1a1a", marginBottom: "10px" }}>
         {title}
       </h2>
       <div
@@ -83,8 +83,8 @@ function SectionTitle({ title, centered = false }: { title: string; centered?: b
 function BodyText({ children }: { children: React.ReactNode }) {
   return (
     <p
-      className="font-cormorant"
-      style={{ fontSize: "17px", color: "#444", lineHeight: "1.95", textAlign: "justify", marginBottom: "18px" }}
+      className="font-cormorant text-[16px] md:text-[17px]"
+      style={{ color: "#444", lineHeight: "1.95", textAlign: "justify", marginBottom: "18px" }}
     >
       {children}
     </p>
@@ -205,10 +205,10 @@ export default function EnglishDeptPage() {
     <>
       <Navbar />
 
-      {/* Hero */}
+      {/* Hero — FIX 1 */}
       <section
+        className="min-h-[160px] h-auto md:h-[200px] px-4 py-6 md:px-0 md:py-0"
         style={{
-          height: "200px",
           backgroundColor: "#7B2C3A",
           display: "flex",
           flexDirection: "column",
@@ -220,8 +220,8 @@ export default function EnglishDeptPage() {
         }}
       >
         <h1
-          className="font-cormorant"
-          style={{ fontSize: "48px", color: "#D1B05D", fontStyle: "italic", textAlign: "center", marginBottom: "12px" }}
+          className="font-cormorant text-[32px] md:text-[48px]"
+          style={{ color: "#D1B05D", fontStyle: "italic", textAlign: "center", marginBottom: "12px" }}
         >
           Department of English
         </h1>
@@ -238,11 +238,11 @@ export default function EnglishDeptPage() {
         </nav>
       </section>
 
-      {/* Three Quick Cards */}
+      {/* Three Quick Cards — FIX 2 */}
       <div
+        className="px-4 py-6 md:px-20 md:py-10"
         style={{
           position: "relative",
-          padding: "40px 80px",
           backgroundColor: "white",
           display: "flex",
           alignItems: "center",
@@ -250,8 +250,9 @@ export default function EnglishDeptPage() {
           overflow: "hidden",
         }}
       >
-        {/* Left feather — z-index 1, behind card box */}
+        {/* Left feather — hidden on mobile */}
         <Image
+          className="hidden md:block"
           src="/images/feather.png"
           alt=""
           width={280}
@@ -267,8 +268,9 @@ export default function EnglishDeptPage() {
           }}
         />
 
-        {/* Right feather — z-index 1, behind card box */}
+        {/* Right feather — hidden on mobile */}
         <Image
+          className="hidden md:block"
           src="/images/feather.png"
           alt=""
           width={280}
@@ -284,15 +286,14 @@ export default function EnglishDeptPage() {
           }}
         />
 
-        {/* Cards box — z-index 2, above feathers */}
+        {/* Cards box — stacks vertically on mobile */}
         <div
+          className="flex flex-col md:flex-row w-full md:w-[75%]"
           style={{
             position: "relative",
             zIndex: 2,
-            width: "75%",
             maxWidth: "820px",
             margin: "0 auto",
-            display: "flex",
             border: "1px solid #dfdfdf",
             backgroundColor: "white",
             boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
@@ -304,7 +305,7 @@ export default function EnglishDeptPage() {
           <span style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "5px", background: "linear-gradient(90deg, #640000, #7B2C3A, #9B3A4A)", display: "block" }} />
 
           {/* Card 1 — Programmes Offered */}
-          <div style={{ flex: 1, padding: "44px 24px 48px", textAlign: "center", borderRight: "1px solid #dfdfdf" }}>
+          <div className="w-full md:flex-1 p-6 md:p-10 text-center border-b md:border-b-0 md:border-r border-[#dfdfdf]">
             <BookOpen size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
             <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
               Programmes Offered
@@ -313,7 +314,7 @@ export default function EnglishDeptPage() {
           </div>
 
           {/* Card 2 — Admissions */}
-          <div style={{ flex: 1, padding: "44px 24px 48px", textAlign: "center", borderRight: "1px solid #dfdfdf" }}>
+          <div className="w-full md:flex-1 p-6 md:p-10 text-center border-b md:border-b-0 md:border-r border-[#dfdfdf]">
             <GraduationCap size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
             <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
               Admissions
@@ -322,8 +323,8 @@ export default function EnglishDeptPage() {
             <QuickBtn label="Ph.D" />
           </div>
 
-          {/* Card 3 — Programme Outcome */}
-          <div style={{ flex: 1, padding: "44px 24px 48px", textAlign: "center" }}>
+          {/* Card 3 — Programme Outcome (no border) */}
+          <div className="w-full md:flex-1 p-6 md:p-10 text-center">
             <BookMarked size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
             <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
               Programme Outcome
@@ -334,8 +335,8 @@ export default function EnglishDeptPage() {
         </div>
       </div>
 
-      {/* About Us */}
-      <section style={{ backgroundColor: "white", padding: "60px 24px" }}>
+      {/* About Us — FIX 3 & FIX 10 */}
+      <section className="px-4 py-8 md:px-6 md:py-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="About Us" />
           <BodyText>
@@ -355,8 +356,8 @@ export default function EnglishDeptPage() {
         </div>
       </section>
 
-      {/* YouTube Video */}
-      <section style={{ backgroundColor: "#F3F7FF", padding: "50px 24px" }}>
+      {/* YouTube Video — FIX 7 & FIX 10 */}
+      <section className="px-4 py-8 md:px-6 md:py-[50px]" style={{ backgroundColor: "#F3F7FF" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="Department Video" />
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
@@ -373,11 +374,11 @@ export default function EnglishDeptPage() {
         </div>
       </section>
 
-      {/* Special Papers */}
-      <section style={{ backgroundColor: "white", padding: "50px 24px" }}>
+      {/* Special Papers — FIX 4 & FIX 10 */}
+      <section className="px-4 py-8 md:px-6 md:py-[50px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="Special Papers Offered" />
-          <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: "12px" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: "12px" }}>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               {specialPapersLeft.map((paper) => (
                 <PaperTag key={paper} label={paper} />
@@ -392,8 +393,8 @@ export default function EnglishDeptPage() {
         </div>
       </section>
 
-      {/* Faculty Expertise */}
-      <section style={{ backgroundColor: "#F3F7FF", padding: "50px 24px" }}>
+      {/* Faculty Expertise — FIX 5 & FIX 10 */}
+      <section className="px-4 py-8 md:px-6 md:py-[50px]" style={{ backgroundColor: "#F3F7FF" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="Faculty Expertise" />
           <BodyText>
@@ -403,7 +404,7 @@ export default function EnglishDeptPage() {
             providing the best possible education to the Undergraduate, Postgraduate, M Phil and
             Ph D students.
           </BodyText>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{ gap: "20px" }}>
+          <div className="grid grid-cols-1 md:grid-cols-3" style={{ gap: "20px" }}>
             {expertiseCards.map((card) => (
               <div
                 key={card.title}
@@ -427,8 +428,8 @@ export default function EnglishDeptPage() {
         </div>
       </section>
 
-      {/* English Literature Courses */}
-      <section style={{ backgroundColor: "white", padding: "50px 24px" }}>
+      {/* English Literature Courses — FIX 10 */}
+      <section className="px-4 py-8 md:px-6 md:py-[50px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="Our English Literature Courses" />
           <BodyText>
@@ -450,8 +451,8 @@ export default function EnglishDeptPage() {
         </div>
       </section>
 
-      {/* ESL Programmes */}
-      <section style={{ backgroundColor: "#F3F7FF", padding: "50px 24px" }}>
+      {/* ESL Programmes — FIX 10 */}
+      <section className="px-4 py-8 md:px-6 md:py-[50px]" style={{ backgroundColor: "#F3F7FF" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="ESL Programmes" />
           <BodyText>
@@ -476,11 +477,11 @@ export default function EnglishDeptPage() {
         </div>
       </section>
 
-      {/* Faculty */}
-      <section style={{ backgroundColor: "white", padding: "60px 24px" }}>
+      {/* Faculty — FIX 6 & FIX 9 & FIX 10 */}
+      <section className="px-4 py-8 md:px-6 md:py-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <h2 className="font-cormorant" style={{ fontSize: "32px", color: "#7B2C3A", marginBottom: "12px" }}>
+            <h2 className="font-cormorant text-[22px] md:text-[32px]" style={{ color: "#7B2C3A", marginBottom: "12px" }}>
               Our Faculty
             </h2>
             <div style={{ width: "50px", height: "2px", backgroundColor: "#D1B05D", margin: "0 auto" }} />
