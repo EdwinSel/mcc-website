@@ -28,7 +28,7 @@ const faculty: FacultyMember[] = [
 function SectionTitle({ title }: { title: string }) {
   return (
     <div style={{ marginBottom: "24px" }}>
-      <h2 className="font-cormorant font-bold" style={{ fontSize: "26px", color: "#1a1a1a", marginBottom: "10px" }}>
+      <h2 className="font-cormorant font-bold text-[22px] md:text-[26px]" style={{ color: "#1a1a1a", marginBottom: "10px" }}>
         {title}
       </h2>
       <div style={{ width: "50px", height: "2px", backgroundColor: "#D1B05D" }} />
@@ -38,7 +38,7 @@ function SectionTitle({ title }: { title: string }) {
 
 function BodyText({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-cormorant" style={{ fontSize: "17px", color: "#444", lineHeight: "1.95", textAlign: "justify", marginBottom: "18px" }}>
+    <p className="font-cormorant text-[16px] md:text-[17px]" style={{ color: "#444", lineHeight: "1.95", textAlign: "justify", marginBottom: "18px" }}>
       {children}
     </p>
   );
@@ -48,7 +48,7 @@ function BulletPoint({ children }: { children: React.ReactNode }) {
   return (
     <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "14px" }}>
       <span style={{ width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#D1B05D", flexShrink: 0, marginTop: "9px" }} />
-      <p className="font-cormorant" style={{ fontSize: "17px", color: "#444", lineHeight: "1.85", margin: 0, textAlign: "justify" }}>
+      <p className="font-cormorant text-[16px] md:text-[17px]" style={{ color: "#444", lineHeight: "1.85", margin: 0, textAlign: "justify" }}>
         {children}
       </p>
     </div>
@@ -58,10 +58,10 @@ function BulletPoint({ children }: { children: React.ReactNode }) {
 function NumberedPoint({ number, children }: { number: number; children: React.ReactNode }) {
   return (
     <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "10px" }}>
-      <span className="font-cormorant font-bold" style={{ fontSize: "17px", color: "#7B2C3A", flexShrink: 0, minWidth: "20px" }}>
+      <span className="font-cormorant font-bold text-[16px] md:text-[17px]" style={{ color: "#7B2C3A", flexShrink: 0, minWidth: "20px" }}>
         ({number})
       </span>
-      <p className="font-cormorant" style={{ fontSize: "17px", color: "#444", lineHeight: "1.85", margin: 0, textAlign: "justify" }}>
+      <p className="font-cormorant text-[16px] md:text-[17px]" style={{ color: "#444", lineHeight: "1.85", margin: 0, textAlign: "justify" }}>
         {children}
       </p>
     </div>
@@ -74,7 +74,7 @@ function ProgrammeBox({ number, children }: { number: number; children: React.Re
       <span className="font-dm font-bold" style={{ fontSize: "16px", color: "#7B2C3A", flexShrink: 0, minWidth: "22px" }}>
         {number}.
       </span>
-      <p className="font-cormorant" style={{ fontSize: "17px", color: "#444", lineHeight: "1.8", margin: 0 }}>
+      <p className="font-cormorant text-[16px] md:text-[17px]" style={{ color: "#444", lineHeight: "1.8", margin: 0 }}>
         {children}
       </p>
     </div>
@@ -162,8 +162,8 @@ export default function SocialWorkDeptPage() {
 
       {/* Hero */}
       <section
+        className="min-h-[160px] h-auto md:h-[200px] px-4 py-6 md:px-0 md:py-0"
         style={{
-          height: "200px",
           backgroundColor: "#7B2C3A",
           display: "flex",
           flexDirection: "column",
@@ -173,7 +173,7 @@ export default function SocialWorkDeptPage() {
           backgroundSize: "10px 10px",
         }}
       >
-        <h1 className="font-cormorant" style={{ fontSize: "48px", color: "#D1B05D", fontStyle: "italic", textAlign: "center", marginBottom: "12px" }}>
+        <h1 className="font-cormorant text-[32px] md:text-[48px]" style={{ color: "#D1B05D", fontStyle: "italic", textAlign: "center", marginBottom: "12px" }}>
           Department of Social Work
         </h1>
         <nav>
@@ -191,9 +191,9 @@ export default function SocialWorkDeptPage() {
 
       {/* Three Quick Cards */}
       <div
+        className="px-4 py-6 md:px-20 md:py-10"
         style={{
           position: "relative",
-          padding: "40px 80px",
           backgroundColor: "white",
           display: "flex",
           alignItems: "center",
@@ -202,6 +202,7 @@ export default function SocialWorkDeptPage() {
         }}
       >
         <Image
+          className="hidden md:block"
           src="/images/feather.png"
           alt=""
           width={280}
@@ -209,6 +210,7 @@ export default function SocialWorkDeptPage() {
           style={{ position: "absolute", left: "calc(12.5% + 120px)", top: "50%", transform: "translateY(-50%)", zIndex: 1, height: "auto", pointerEvents: "none" }}
         />
         <Image
+          className="hidden md:block"
           src="/images/feather.png"
           alt=""
           width={280}
@@ -217,13 +219,12 @@ export default function SocialWorkDeptPage() {
         />
 
         <div
+          className="flex flex-col md:flex-row w-full md:w-[75%]"
           style={{
             position: "relative",
             zIndex: 2,
-            width: "75%",
             maxWidth: "820px",
             margin: "0 auto",
-            display: "flex",
             border: "1px solid #dfdfdf",
             backgroundColor: "white",
             boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
@@ -233,7 +234,7 @@ export default function SocialWorkDeptPage() {
           <span style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "5px", background: "linear-gradient(90deg, #640000, #7B2C3A, #9B3A4A)", display: "block" }} />
 
           {/* Card 1 — Programmes Offered */}
-          <div style={{ flex: 1, padding: "56px 24px 60px", textAlign: "center", borderRight: "1px solid #dfdfdf" }}>
+          <div className="w-full md:flex-1 p-6 md:p-10 text-center border-b md:border-b-0 md:border-r border-[#dfdfdf]">
             <Users size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
             <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
               Programmes Offered
@@ -244,7 +245,7 @@ export default function SocialWorkDeptPage() {
           </div>
 
           {/* Card 2 — Admissions */}
-          <div style={{ flex: 1, padding: "56px 24px 60px", textAlign: "center", borderRight: "1px solid #dfdfdf" }}>
+          <div className="w-full md:flex-1 p-6 md:p-10 text-center border-b md:border-b-0 md:border-r border-[#dfdfdf]">
             <GraduationCap size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
             <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
               Admissions
@@ -253,7 +254,7 @@ export default function SocialWorkDeptPage() {
           </div>
 
           {/* Card 3 — Programme Outcome */}
-          <div style={{ flex: 1, padding: "56px 24px 60px", textAlign: "center" }}>
+          <div className="w-full md:flex-1 p-6 md:p-10 text-center">
             <BookMarked size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
             <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
               Programme Outcome
@@ -264,7 +265,7 @@ export default function SocialWorkDeptPage() {
       </div>
 
       {/* About Us */}
-      <section style={{ backgroundColor: "white", padding: "60px 24px" }}>
+      <section className="px-4 py-8 md:px-6 md:py-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="About Us" />
           <BodyText>
@@ -282,7 +283,7 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* Objectives */}
-      <section style={{ backgroundColor: "white", padding: "0 24px 60px" }}>
+      <section className="px-4 pb-8 md:px-6 md:pb-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="Objectives of the Post-Graduate course in Social Work" />
           <BodyText>
@@ -310,7 +311,7 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* Brief History */}
-      <section style={{ backgroundColor: "white", padding: "0 24px 60px" }}>
+      <section className="px-4 pb-8 md:px-6 md:pb-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="Brief History of Social Service Programme in MCC" />
           <BodyText>
@@ -336,7 +337,7 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* RSL and CIRDS */}
-      <section style={{ backgroundColor: "white", padding: "0 24px 60px" }}>
+      <section className="px-4 pb-8 md:px-6 md:pb-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="The RSL and the CIRDS" />
           <BodyText>
@@ -363,7 +364,7 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* History of Social Services */}
-      <section style={{ backgroundColor: "white", padding: "0 24px 60px" }}>
+      <section className="px-4 pb-8 md:px-6 md:pb-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="History of Social Services Initiation at MCC, Tambaram" />
           <BodyText>
@@ -395,7 +396,7 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* Additional History */}
-      <section style={{ backgroundColor: "white", padding: "0 24px 60px" }}>
+      <section className="px-4 pb-8 md:px-6 md:pb-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <BodyText>
             During the mid &apos;40s the Student Christian Movement of the College started a Leprosy
@@ -435,7 +436,7 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* MSW Academic Programme */}
-      <section style={{ backgroundColor: "white", padding: "0 24px 60px" }}>
+      <section className="px-4 pb-8 md:px-6 md:pb-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="MSW Academic Programme:" />
           <BodyText>
@@ -453,7 +454,7 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* MSW Programme Consists Of */}
-      <section style={{ backgroundColor: "white", padding: "0 24px 60px" }}>
+      <section className="px-4 pb-8 md:px-6 md:pb-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="The MSW programme consists of:" />
           <ProgrammeBox number={1}>Core Courses, Which Are Mandatory For All Students.</ProgrammeBox>
@@ -467,7 +468,7 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* Highlights */}
-      <section style={{ backgroundColor: "white", padding: "0 24px 60px" }}>
+      <section className="px-4 pb-8 md:px-6 md:pb-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="Highlights of innovations introduced:" />
           <BulletPoint>New electives were introduced in areas such as Disaster Management, International Social Work, Conflict Resolution &amp; Peace Building, Social Work with Families &amp; Children.</BulletPoint>
@@ -479,7 +480,7 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* Concurrent Field Work */}
-      <section style={{ backgroundColor: "white", padding: "0 24px 60px" }}>
+      <section className="px-4 pb-8 md:px-6 md:pb-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="Concurrent Field Work Practicum:" />
           <BodyText>
@@ -513,7 +514,7 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* Block Internship */}
-      <section style={{ backgroundColor: "white", padding: "0 24px 60px" }}>
+      <section className="px-4 pb-8 md:px-6 md:pb-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="Block Internship Programme:" />
           <BodyText>
@@ -533,10 +534,10 @@ export default function SocialWorkDeptPage() {
       </section>
 
       {/* Faculty */}
-      <section style={{ backgroundColor: "#F3F7FF", padding: "60px 24px" }}>
+      <section className="px-4 py-8 md:px-6 md:py-[60px]" style={{ backgroundColor: "#F3F7FF" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <h2 className="font-cormorant" style={{ fontSize: "32px", color: "#7B2C3A", marginBottom: "12px" }}>
+            <h2 className="font-cormorant text-[22px] md:text-[32px]" style={{ color: "#7B2C3A", marginBottom: "12px" }}>
               Our Faculty
             </h2>
             <div style={{ width: "50px", height: "2px", backgroundColor: "#D1B05D", margin: "0 auto" }} />

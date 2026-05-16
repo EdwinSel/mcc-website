@@ -35,7 +35,7 @@ const faculty: FacultyMember[] = [
 function SectionTitle({ title, centered = false }: { title: string; centered?: boolean }) {
   return (
     <div style={{ marginBottom: "24px", textAlign: centered ? "center" : "left" }}>
-      <h2 className="font-cormorant font-bold" style={{ fontSize: "26px", color: "#1a1a1a", marginBottom: "10px" }}>
+      <h2 className="font-cormorant font-bold text-[22px] md:text-[26px]" style={{ color: "#1a1a1a", marginBottom: "10px" }}>
         {title}
       </h2>
       <div style={{ width: "50px", height: "2px", backgroundColor: "#D1B05D", margin: centered ? "0 auto" : "0" }} />
@@ -45,7 +45,7 @@ function SectionTitle({ title, centered = false }: { title: string; centered?: b
 
 function BodyText({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-cormorant" style={{ fontSize: "17px", color: "#444", lineHeight: "1.95", textAlign: "justify", marginBottom: "18px" }}>
+    <p className="font-cormorant text-[16px] md:text-[17px]" style={{ color: "#444", lineHeight: "1.95", textAlign: "justify", marginBottom: "18px" }}>
       {children}
     </p>
   );
@@ -102,7 +102,6 @@ function FacultyCard({ name, designation, email, orcid, photo, initials }: Facul
             className="font-dm"
             style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "#A6CE39", textDecoration: "none", marginBottom: "14px" }}
           >
-            {/* ORCID logo */}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="#A6CE39" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947-.947-.431-.947-.947.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.359 0 3.962-1.444 3.962-3.722 0-1.991-1.453-3.722-3.934-3.722h-2.325z"/>
             </svg>
@@ -141,8 +140,8 @@ export default function PoliticalScienceDeptPage() {
 
       {/* Hero */}
       <section
+        className="min-h-[160px] h-auto md:h-[200px] px-4 py-6 md:px-0 md:py-0"
         style={{
-          height: "200px",
           backgroundColor: "#7B2C3A",
           display: "flex",
           flexDirection: "column",
@@ -152,7 +151,7 @@ export default function PoliticalScienceDeptPage() {
           backgroundSize: "10px 10px",
         }}
       >
-        <h1 className="font-cormorant" style={{ fontSize: "44px", color: "#D1B05D", fontStyle: "italic", textAlign: "center", marginBottom: "12px" }}>
+        <h1 className="font-cormorant text-[32px] md:text-[44px]" style={{ color: "#D1B05D", fontStyle: "italic", textAlign: "center", marginBottom: "12px" }}>
           Department of Political Science
         </h1>
         <nav>
@@ -170,9 +169,9 @@ export default function PoliticalScienceDeptPage() {
 
       {/* Three Quick Cards */}
       <div
+        className="px-4 py-6 md:px-20 md:py-10"
         style={{
           position: "relative",
-          padding: "40px 80px",
           backgroundColor: "white",
           display: "flex",
           alignItems: "center",
@@ -180,25 +179,25 @@ export default function PoliticalScienceDeptPage() {
           overflow: "hidden",
         }}
       >
-        <Image src="/images/feather.png" alt="" width={280} height={420}
+        <Image className="hidden md:block" src="/images/feather.png" alt="" width={280} height={420}
           style={{ position: "absolute", left: "calc(12.5% + 120px)", top: "50%", transform: "translateY(-50%)", zIndex: 1, height: "auto", pointerEvents: "none" }}
         />
-        <Image src="/images/feather.png" alt="" width={280} height={420}
+        <Image className="hidden md:block" src="/images/feather.png" alt="" width={280} height={420}
           style={{ position: "absolute", right: "calc(12.5% + 120px)", top: "50%", transform: "translateY(-50%) scaleX(-1)", zIndex: 1, height: "auto", pointerEvents: "none" }}
         />
 
         <div
+          className="flex flex-col md:flex-row w-full md:w-[75%]"
           style={{
-            position: "relative", zIndex: 2, width: "75%", maxWidth: "820px", margin: "0 auto",
-            display: "flex", border: "1px solid #dfdfdf", backgroundColor: "white",
+            position: "relative", zIndex: 2, maxWidth: "820px", margin: "0 auto",
+            border: "1px solid #dfdfdf", backgroundColor: "white",
             boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
           }}
         >
           <span style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", backgroundColor: "#D1B05D", display: "block" }} />
           <span style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "5px", background: "linear-gradient(90deg, #640000, #7B2C3A, #9B3A4A)", display: "block" }} />
 
-          {/* Card 1 — Programmes Offered */}
-          <div style={{ flex: 1, padding: "56px 24px 60px", textAlign: "center", borderRight: "1px solid #dfdfdf" }}>
+          <div className="w-full md:flex-1 p-6 md:p-10 text-center border-b md:border-b-0 md:border-r border-[#dfdfdf]">
             <Shield size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
             <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
               Programmes Offered
@@ -206,8 +205,7 @@ export default function PoliticalScienceDeptPage() {
             <p className="font-cormorant" style={{ fontSize: "14px", color: "#888" }}>B.A, M.A, M.Phil, Ph.D</p>
           </div>
 
-          {/* Card 2 — Admissions */}
-          <div style={{ flex: 1, padding: "56px 24px 60px", textAlign: "center", borderRight: "1px solid #dfdfdf" }}>
+          <div className="w-full md:flex-1 p-6 md:p-10 text-center border-b md:border-b-0 md:border-r border-[#dfdfdf]">
             <GraduationCap size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
             <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
               Admissions
@@ -216,8 +214,7 @@ export default function PoliticalScienceDeptPage() {
             <QuickBtn label="M.Phil / Ph.D" />
           </div>
 
-          {/* Card 3 — Programme Outcome */}
-          <div style={{ flex: 1, padding: "56px 24px 60px", textAlign: "center" }}>
+          <div className="w-full md:flex-1 p-6 md:p-10 text-center">
             <BookMarked size={55} color="#7B2C3A" style={{ margin: "0 auto" }} />
             <p className="font-cormorant" style={{ fontSize: "18px", color: "#7B2C3A", fontStyle: "italic", margin: "16px 0 8px" }}>
               Programme Outcome
@@ -229,7 +226,7 @@ export default function PoliticalScienceDeptPage() {
       </div>
 
       {/* About Us */}
-      <section style={{ backgroundColor: "white", padding: "60px 24px" }}>
+      <section className="px-4 py-8 md:px-6 md:py-[60px]" style={{ backgroundColor: "white" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <SectionTitle title="About Us" />
           <BodyText>
@@ -260,10 +257,10 @@ export default function PoliticalScienceDeptPage() {
       </section>
 
       {/* Faculty */}
-      <section style={{ backgroundColor: "#F3F7FF", padding: "60px 24px" }}>
+      <section className="px-4 py-8 md:px-6 md:py-[60px]" style={{ backgroundColor: "#F3F7FF" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "40px" }}>
-            <h2 className="font-cormorant" style={{ fontSize: "32px", color: "#7B2C3A", marginBottom: "12px" }}>Our Faculty</h2>
+            <h2 className="font-cormorant text-[22px] md:text-[32px]" style={{ color: "#7B2C3A", marginBottom: "12px" }}>Our Faculty</h2>
             <div style={{ width: "50px", height: "2px", backgroundColor: "#D1B05D", margin: "0 auto" }} />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{ gap: "24px" }}>
